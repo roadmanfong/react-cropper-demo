@@ -1,15 +1,15 @@
 // main.js
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+import ReactCropper from 'react-cropper';
 
-var ReactCropper = require('react-cropper');
-var Demo = React.createClass({
-  _crop: function(){
+class Demo extends Component {
+  _crop(){
     // image in dataUrl
     console.log(this.refs.cropper.getCroppedCanvas().toDataURL());
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <ReactCropper
         ref='cropper'
@@ -18,11 +18,10 @@ var Demo = React.createClass({
         // Cropper.js options
         aspectRatio={16 / 9}
         guides={false}
-        crop={this._crop} />
+        crop={this._crop.bind(this)} />
     );
   }
-});
-
+}
 
 ReactDOM.render(
   <Demo />,

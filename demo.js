@@ -46,32 +46,62 @@
 
 	'use strict';
 	
-	// main.js
-	var React = __webpack_require__(1);
-	var ReactDOM = __webpack_require__(158);
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var ReactCropper = __webpack_require__(159);
-	var Demo = React.createClass({
-	  displayName: 'Demo',
+	var _react = __webpack_require__(1);
 	
-	  _crop: function _crop() {
-	    // image in dataUrl
-	    console.log(this.refs.cropper.getCroppedCanvas().toDataURL());
-	  },
+	var _react2 = _interopRequireDefault(_react);
 	
-	  render: function render() {
-	    return React.createElement(ReactCropper, {
-	      ref: 'cropper',
-	      src: 'http://fengyuanchen.github.io/cropper/img/picture.jpg',
-	      style: { height: 400, width: '100%' }
-	      // Cropper.js options
-	      , aspectRatio: 16 / 9,
-	      guides: false,
-	      crop: this._crop });
+	var _reactDom = __webpack_require__(158);
+	
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+	
+	var _reactCropper = __webpack_require__(159);
+	
+	var _reactCropper2 = _interopRequireDefault(_reactCropper);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // main.js
+	
+	
+	var Demo = function (_Component) {
+	  _inherits(Demo, _Component);
+	
+	  function Demo() {
+	    _classCallCheck(this, Demo);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Demo).apply(this, arguments));
 	  }
-	});
 	
-	ReactDOM.render(React.createElement(Demo, null), document.getElementById('example'));
+	  _createClass(Demo, [{
+	    key: '_crop',
+	    value: function _crop() {
+	      // image in dataUrl
+	      console.log(this.refs.cropper.getCroppedCanvas().toDataURL());
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(_reactCropper2.default, {
+	        ref: 'cropper',
+	        src: 'http://fengyuanchen.github.io/cropper/img/picture.jpg',
+	        style: { height: 400, width: '100%' }
+	        // Cropper.js options
+	        , aspectRatio: 16 / 9,
+	        guides: false,
+	        crop: this._crop.bind(this) });
+	    }
+	  }]);
+	
+	  return Demo;
+	}(_react.Component);
+	
+	_reactDom2.default.render(_react2.default.createElement(Demo, null), document.getElementById('example'));
 
 /***/ },
 /* 1 */
@@ -23359,8 +23389,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../css-loader/index.js!./cropper.css", function() {
-				var newContent = require("!!./../../../../css-loader/index.js!./cropper.css");
+			module.hot.accept("!!./../../css-loader/index.js!./cropper.css", function() {
+				var newContent = require("!!./../../css-loader/index.js!./cropper.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -23656,7 +23686,6 @@
 	function applyToTag(styleElement, obj) {
 		var css = obj.css;
 		var media = obj.media;
-		var sourceMap = obj.sourceMap;
 	
 		if(media) {
 			styleElement.setAttribute("media", media)
@@ -23674,7 +23703,6 @@
 	
 	function updateLink(linkElement, obj) {
 		var css = obj.css;
-		var media = obj.media;
 		var sourceMap = obj.sourceMap;
 	
 		if(sourceMap) {
